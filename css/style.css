@@ -142,6 +142,13 @@ input, select {
     flex: 1;
 }
 
+
+#countStatus {
+    display: flex;
+    justify-content: end;
+    margin-right: 5%;
+    font-style: italic;
+}
 /* Todo List */
 
 .todo {

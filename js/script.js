@@ -129,7 +129,7 @@ function countTodos(){
         }
     })
 
-    countStatus.innerText = `${doneTodos}/${totalTodos}`;
+    countStatus.innerText = `Status: ${doneTodos}/${totalTodos}`;
 }
 
 // Eventos
