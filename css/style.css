@@ -1,9 +1,11 @@
 /* Geral */
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Roboto:wght@100;300&display=swap');
+
 * {
     padding: 0;
     margin: 0;
-    font-family: Helvetica;
-    color: #333;
+    font-family: 'Roboto', sans-serif;
+    color: #16323b;
     box-sizing: border-box;
 }
 
@@ -12,15 +14,14 @@ html {
 }
 
 body {
-    background-image: url('../img/bg.jpg');
+    background: #F2F2F2;
     background-position: center;
     background-size: auto;
 }
 
 button {
     background-color: #fdfdfd;
-    color: #102F5e;
-    border: 2px solid #102f5e;
+    border: 0.5px solid #102f5e;
     padding: .3rem .6rem;
     font-size: 1rem;
     cursor: pointer;
@@ -53,6 +54,11 @@ input, select {
     display: none;
 }
 
+#title-todo {
+    font-family: 'PT Sans', sans-serif;
+    color: #102f5e;
+}
+
 /* Todo header */
 .todo-container {
     max-width: 450px;
@@ -60,19 +66,22 @@ input, select {
     background-color: #fdfdfd;
     padding: 1.5rem;
     border-radius: 15px;
+    box-shadow: 5px 5px 10px #888888;
+    /* box-shadow: 5px 5px 10px #888888, -5px -5px 10px #888888, 5px -5px 10px #888888, -5px 5px 10px #888888; */
+
 }
 
 .todo-container header {
     text-align: center;
     padding: 0 1rem 1rem;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 0.1rem solid #14213d;
 }
 
 /* Todo Form */
 
+
 #todo-form, #edit-form {
     padding: 1rem;
-    border-bottom: 1px solid #ccc;
 }
 
 #todo-form p,
@@ -87,6 +96,7 @@ input, select {
 
 .form-control input {
    margin-right: .3rem; 
+   width: 100%;
 }
 
 #cancel-edit-btn {
@@ -97,7 +107,7 @@ input, select {
 
 #toolbar {
     padding: 1rem;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 0.1rem solid #14213d;
     display: flex;
 }
 
@@ -106,7 +116,6 @@ input, select {
 }
 
 #search {
-    border: 1px solid #ddd;
     padding-right: 1rem;
     margin-right: 1rem;
     width: 65%;
@@ -140,13 +149,15 @@ input, select {
     justify-content: space-around;
     align-items: center;
     padding: 1rem;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #14213d;
     transition: .3s;
+    size: 10px;
 }
 
 .todo h3 {
     flex: 1;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    overflow-wrap: anywhere;
 }
 
 .todo button {

@@ -1,5 +1,4 @@
 // Seleção de elementos
-
 const todoForm = document.querySelector("#todo-form");
 const todoInput = document.querySelector("#todo-input");
 const todoList = document.querySelector("#todo-list");
@@ -9,11 +8,11 @@ const cancelEditBtn = document.querySelector("#cancel-edit-btn");
 const searchInput = document.querySelector("#search-input");
 const eraseBtn = document.querySelector("#erase-button");
 const filterBtn = document.querySelector("#filter-select");
+const toolbar = document.querySelector("#toolbar");
 
 let oldInputValue;
 
 // Funções
-
 function saveTodo(task){
     
     // Passar várias classes: classList.add("fa-solid", "fa-check");
@@ -115,18 +114,9 @@ function filterTodos(filterValue){
         default:
             break;
     }
-
-    if (condition) {
-        
-    }
-    
-    if (condition) {
-        
-    }
 }
 
 // Eventos
-
 todoForm.addEventListener("submit", (e) => {
     
     e.preventDefault(); // Enviar o formulário sem recarregar a página
@@ -157,6 +147,7 @@ document.addEventListener("click", (e)=>{
 
     if(targetEl.classList.contains("edit-todo")){
        toggleForms();
+       toolbar.style.display = "none";
        editInput.value = todoTitle;
        oldInputValue = todoTitle;
     }
@@ -164,19 +155,19 @@ document.addEventListener("click", (e)=>{
 
 cancelEditBtn.addEventListener("click", (e)=> {
     e.preventDefault();
-
+    toolbar.style.display = "flex";
     toggleForms();
 })
 
 editForm.addEventListener("submit", (e)=> {
     e.preventDefault();
-
+    toolbar.style.display = "flex";
     const editInputValue = editInput.value;
 
     if(editInputValue){
         updateTodo(editInputValue)
     }
-
+    
     toggleForms();
 })
 
