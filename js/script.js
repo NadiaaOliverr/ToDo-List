@@ -9,8 +9,10 @@ const searchInput = document.querySelector("#search-input");
 const eraseBtn = document.querySelector("#erase-button");
 const filterBtn = document.querySelector("#filter-select");
 const toolbar = document.querySelector("#toolbar");
+const countStatus = document.querySelector("#countStatus");
 
 let oldInputValue;
+
 
 // Funções
 function saveTodo(task){
@@ -116,6 +118,20 @@ function filterTodos(filterValue){
     }
 }
 
+function countTodos(){
+    const todos = document.querySelectorAll(".todo");
+    let totalTodos = todos.length; 
+    let doneTodos = 0;
+
+    todos.forEach((todo) =>{
+        if(todo.classList.contains("done")){
+            doneTodos++;
+        }
+    })
+
+    countStatus.innerText = `${doneTodos}/${totalTodos}`;
+}
+
 // Eventos
 todoForm.addEventListener("submit", (e) => {
     
@@ -126,6 +142,7 @@ todoForm.addEventListener("submit", (e) => {
     if(inputValue){
         saveTodo(inputValue);  
     }
+    countTodos();
 })
 
 document.addEventListener("click", (e)=>{
@@ -151,6 +168,7 @@ document.addEventListener("click", (e)=>{
        editInput.value = todoTitle;
        oldInputValue = todoTitle;
     }
+    countTodos();
 })
 
 cancelEditBtn.addEventListener("click", (e)=> {
