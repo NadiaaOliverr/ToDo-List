@@ -11,82 +11,118 @@ const filterBtn = document.querySelector("#filter-select");
 const toolbar = document.querySelector("#toolbar");
 const countStatus = document.querySelector("#countStatus");
 const selectPriority = document.querySelector("#select-priority");
+const editselectPriority = document.querySelector("#select-priority-edit");
 
 let oldInputValue;
 
 
 // Funções
-function saveTodo(task){
-    
-    // Passar várias classes: classList.add("fa-solid", "fa-check");
-
-    const todo = document.createElement("div");
-    todo.classList.add("todo");
-
-    const todoTitle = document.createElement("h3");
-    todoTitle.innerHTML = task;
-    todo.appendChild(todoTitle);
-    
-    const prioritySelected = selectPriority.value;
-    const priority = document.createElement("div");
-    if(prioritySelected === "low"){
-        priority.id = "priority-low";
-        priority.innerHTML = `<p>Baixa</p>`
-    }if(prioritySelected === "high"){
-        priority.id = "priority-high";
-        priority.innerHTML = `<p>Alta</p>`
-    }if(prioritySelected === "middle"){
-        priority.id = "priority-middle";
-        priority.innerHTML = `<p>Média</p>`
+function addPriority(value, el) {
+    switch (value) {
+        case "low":
+            el.classList.add("priority-low");
+            el.id = "priority-low";
+            el.innerHTML = `<p>Baixa</p>`;
+            break;
+        case "middle":
+            el.classList.add("priority-middle");
+            el.id = "priority-middle";
+            el.innerHTML = `<p>Média</p>`;
+            break;
+        case "high":
+            el.classList.add("priority-high");
+            el.id = "priority-high";
+            el.innerHTML = `<p>Alta</p>`;
+            break;
+        default:
+            break;
     }
-
-    todo.appendChild(priority);
-    
-    const doneBtn = document.createElement("button");
-    doneBtn.classList.add("finish-todo");
-    doneBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
-    todo.appendChild(doneBtn);
-
-    const editBtn = document.createElement("button");
-    editBtn.classList.add("edit-todo");
-    editBtn.innerHTML = '<i class="fa-solid fa-pen"></i>';
-    todo.appendChild(editBtn);
-
-    const removeBtn = document.createElement("button");
-    removeBtn.classList.add("remove-todo");
-    removeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
-    todo.appendChild(removeBtn);
-   
-    todoList.appendChild(todo);
-
-    clearValue();
+    return el;
 }
 
-function clearValue(){
+function verifyTitleTask(task) {
+    const todos = document.querySelectorAll(".todo");
+    let titlesList = []; 
+
+    todos.forEach((todo) => {
+        const todoTitle = todo.querySelector("h3").innerText;
+        titlesList.push(todoTitle);
+    });
+
+    if(titlesList.includes(task)){
+        alert("Tarefa já existe no TO DO.");
+        return true;
+    }
+}
+
+function clearValue() {
     todoInput.value = ""
     todoInput.focus();
 }
 
-function toggleForms(){
+function saveTodo(task) {
+
+    if(!verifyTitleTask(task)){
+        const todo = document.createElement("div");
+        todo.classList.add("todo");
+
+        const todoTitle = document.createElement("h3");
+        todoTitle.innerHTML = task;
+        todo.appendChild(todoTitle);
+
+        const prioritySelected = selectPriority.value;
+        let priority = document.createElement("div");
+        priority = addPriority(prioritySelected, priority);
+
+        todo.appendChild(priority);
+
+        const doneBtn = document.createElement("button");
+        doneBtn.classList.add("finish-todo");
+        doneBtn.innerHTML = '<i class="fa-solid fa-check"></i>';
+        todo.appendChild(doneBtn);
+
+        const editBtn = document.createElement("button");
+        editBtn.classList.add("edit-todo");
+        editBtn.innerHTML = '<i class="fa-solid fa-pen"></i>';
+        todo.appendChild(editBtn);
+
+        const removeBtn = document.createElement("button");
+        removeBtn.classList.add("remove-todo");
+        removeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+        todo.appendChild(removeBtn);
+
+        todoList.appendChild(todo);
+    }
+
+    clearValue();
+}
+
+function toggleForms() {
     editForm.classList.toggle("hide");
     todoForm.classList.toggle("hide");
     todoList.classList.toggle("hide");
 }
 
-function updateTodo(text){
+function updateTodo(text, priority) {
     const todos = document.querySelectorAll(".todo");
 
     todos.forEach((todo) => {
         let todoTitle = todo.querySelector("h3");
 
-        if(todoTitle.innerText === oldInputValue){
+        if (todoTitle.innerText === oldInputValue) {
             todoTitle.innerText = text;
+
+            let priorityDiv = todo.querySelector("div[id^='priority-']");
+            console.log(priorityDiv);
+            priorityDiv.id = "";
+            addPriority(priority, priorityDiv);
+            
         }
     });
 }
 
-function getSearchTodos(search){
-    
+function getSearchTodos(search) {
+
     const todos = document.querySelectorAll(".todo");
 
     todos.forEach((todo) => {
@@ -96,37 +132,41 @@ function getSearchTodos(search){
 
         todo.style.display = "flex";
 
-        if(!todoTitle.includes(normalizedSearch)){
+        if (!todoTitle.includes(normalizedSearch)) {
             todo.style.display = "none";
         }
     })
 }
 
-function deleteSearch(){
+function deleteSearch() {
     searchInput.value = "";
     searchInput.dispatchEvent(new Event("keyup"));
 }
 
-function filterTodos(filterValue){
+function filterTodos(filterValue) {
 
     const todos = document.querySelectorAll(".todo");
 
-    switch(filterValue) {
+    switch (filterValue) {
         case "all":
-            todos.forEach((todo) =>{
+            todos.forEach((todo) => {
                 todo.style.display = "flex";
             })
             break;
-        
+
         case "done":
-            todos.forEach((todo) =>{
-                todo.classList.contains("done") ? (todo.style.display = "flex") : (todo.style.display = "none");
+            todos.forEach((todo) => {
+                todo.classList.contains("done") ? 
+                (todo.style.display = "flex") : 
+                (todo.style.display = "none");
             })
             break;
 
         case "todo":
-            todos.forEach((todo) =>{
-                !todo.classList.contains("done") ? todo.style.display = "flex" : todo.style.display = "none";
+            todos.forEach((todo) => {
+                !todo.classList.contains("done") ? 
+                todo.style.display = "flex" : 
+                todo.style.display = "none";
             })
             break;
         default:
@@ -134,13 +174,13 @@ function filterTodos(filterValue){
     }
 }
 
-function countTodos(){
+function countTodos() {
     const todos = document.querySelectorAll(".todo");
-    let totalTodos = todos.length; 
+    let totalTodos = todos.length;
     let doneTodos = 0;
 
-    todos.forEach((todo) =>{
-        if(todo.classList.contains("done")){
+    todos.forEach((todo) => {
+        if (todo.classList.contains("done")) {
             doneTodos++;
         }
     })
@@ -150,60 +190,73 @@ function countTodos(){
 
 // Eventos
 todoForm.addEventListener("submit", (e) => {
-    
-    e.preventDefault(); // Enviar o formulário sem recarregar a página
+
+    e.preventDefault();
 
     const inputValue = todoInput.value;
-    
-    if(inputValue){
-        saveTodo(inputValue);  
-    }else{
+
+    if (inputValue) {
+        saveTodo(inputValue);
+    } else {
         alert("Insira algo no campo!")
     }
     countTodos();
 })
 
-document.addEventListener("click", (e)=>{
+document.addEventListener("click", (e) => {
     const targetEl = e.target;
     const parentEl = targetEl.closest("div");
     let todoTitle;
+    let todoPriority;
 
-    if(parentEl && parentEl.querySelector("h3")){
+    if (parentEl && parentEl.querySelector("h3") && parentEl.querySelector("p")) {
         todoTitle = parentEl.querySelector("h3").innerText;
+        todoPriority = parentEl.querySelector("p").innerText;
     }
 
-    if(targetEl.classList.contains("finish-todo")){
+    if (targetEl.classList.contains("finish-todo")) {
         parentEl.classList.toggle("done");
     }
 
-    if(targetEl.classList.contains("remove-todo")){
+    if (targetEl.classList.contains("remove-todo")) {
         parentEl.remove();
     }
 
-    if(targetEl.classList.contains("edit-todo")){
-       toggleForms();
-       toolbar.style.display = "none";
-       editInput.value = todoTitle;
-       oldInputValue = todoTitle;
+    if (targetEl.classList.contains("edit-todo")) {
+        toggleForms();
+        toolbar.style.display = "none";
+        countStatus.style.display = "none";
+        editInput.value = todoTitle;
+        if(todoPriority === "Baixa"){
+            editselectPriority.value = "low";
+        }if(todoPriority === "Alta"){
+            editselectPriority.value = "high";
+        }if(todoPriority === "Média"){
+            editselectPriority.value = "middle";
+        }
+        oldInputValue = todoTitle;
     }
     countTodos();
 })
 
-cancelEditBtn.addEventListener("click", (e)=> {
+cancelEditBtn.addEventListener("click", (e) => {
     e.preventDefault();
     toolbar.style.display = "flex";
+    countStatus.style.display = "flex";
     toggleForms();
 })
 
-editForm.addEventListener("submit", (e)=> {
+editForm.addEventListener("submit", (e) => {
     e.preventDefault();
     toolbar.style.display = "flex";
+    countStatus.style.display = "flex";
     const editInputValue = editInput.value;
+    const editSelectValue = editselectPriority.value;
 
-    if(editInputValue){
-        updateTodo(editInputValue)
+    if (editInputValue || editSelectValue) {
+        updateTodo(editInputValue, editSelectValue)
     }
-    
+
     toggleForms();
 })
 
