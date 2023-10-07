@@ -1,6 +1,6 @@
 # Todo List :books:
 
-Aplicação de um *todo list* (lista de tarefasa) elaborada na linguagem JavaScript em conjunto com HTML e CSS, onde foi trabalhado vários conceitos de manipulação do DOM.
+Aplicação de um *todo list* (lista de tarefas) elaborada na linguagem JavaScript em conjunto com HTML e CSS, onde foi trabalhado vários conceitos de manipulação do DOM. A aplicação inclui recursos como adição, edição, conclusão e remoção de tarefas, além de filtragem por prioridade e pesquisa. Além disso, foi utilizado boas práticas de usabilidade para criar uma experiência amigável ao usuário.
 
 ![Gif que mostra o projeto em execução e as funcionalidades](https://i.imgur.com/EeWkRbK.gif)
 
@@ -19,6 +19,7 @@ Aplicação de um *todo list* (lista de tarefasa) elaborada na linguagem JavaScr
 
 - Adição de Tarefas
 - Edição de Tarefas
+- Interação do Usuário;
 - Filtragem de Tarefas por Status (Concluídas ou Pendentes)
 - Deleção de Tarefas
 - Marcação de Tarefas como Concluídas
