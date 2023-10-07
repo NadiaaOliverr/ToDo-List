@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
         integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="icon" type="image/x-icon" sizes="16x16" href="assets/favicon.ico">
     <script src="js/script.js" defer></script>
 </head>
 
@@ -33,6 +34,11 @@
             <p>Edite a sua tarefa</p>
             <div class="form-control">
                 <input type="text" id="edit-input">
+                <select name="" id="select-priority-edit">
+                    <option value="high">Alta</option>
+                    <option value="middle">Média</option>
+                    <option value="low">Baixa</option>
+                </select>
                 <button type="submit"><i class="fa-solid fa-check-double"></i></button>
             </div>
             <button id="cancel-edit-btn">Cancelar</button>

@@ -146,6 +146,9 @@ input, select {
     flex: 1;
 }
 
+#select-priority-edit {
+    margin-right: 5px;
+}
 
 #countStatus {
     display: flex;
