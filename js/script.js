@@ -237,6 +237,7 @@ document.addEventListener("click", (e) => {
         oldInputValue = todoTitle;
     }
     countTodos();
+    filterTodos(filterBtn.value);
 })
 
 cancelEditBtn.addEventListener("click", (e) => {
