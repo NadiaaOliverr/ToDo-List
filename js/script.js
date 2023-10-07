@@ -10,6 +10,7 @@ const eraseBtn = document.querySelector("#erase-button");
 const filterBtn = document.querySelector("#filter-select");
 const toolbar = document.querySelector("#toolbar");
 const countStatus = document.querySelector("#countStatus");
+const selectPriority = document.querySelector("#select-priority");
 
 let oldInputValue;
 
@@ -25,6 +26,21 @@ function saveTodo(task){
     const todoTitle = document.createElement("h3");
     todoTitle.innerHTML = task;
     todo.appendChild(todoTitle);
+    
+    const prioritySelected = selectPriority.value;
+    const priority = document.createElement("div");
+    if(prioritySelected === "low"){
+        priority.id = "priority-low";
+        priority.innerHTML = `<p>Baixa</p>`
+    }if(prioritySelected === "high"){
+        priority.id = "priority-high";
+        priority.innerHTML = `<p>Alta</p>`
+    }if(prioritySelected === "middle"){
+        priority.id = "priority-middle";
+        priority.innerHTML = `<p>Média</p>`
+    }
+
+    todo.appendChild(priority);
     
     const doneBtn = document.createElement("button");
     doneBtn.classList.add("finish-todo");
@@ -141,6 +157,8 @@ todoForm.addEventListener("submit", (e) => {
     
     if(inputValue){
         saveTodo(inputValue);  
+    }else{
+        alert("Insira algo no campo!")
     }
     countTodos();
 })
