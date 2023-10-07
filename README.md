@@ -1,6 +1,6 @@
 # Todo List :books:
 
-Aplicação de um todo list (lista de tarefasa) elaborada na linguagem JavaScript em conjunto com HTML e CSS, onde foi trabalhado vários conceitos de manipulação do DOM.
+Aplicação de um *todo list* (lista de tarefasa) elaborada na linguagem JavaScript em conjunto com HTML e CSS, onde foi trabalhado vários conceitos de manipulação do DOM.
 
 ![Gif que mostra o projeto em execução e as funcionalidades](https://i.imgur.com/EeWkRbK.gif)
 
@@ -26,15 +26,11 @@ Aplicação de um todo list (lista de tarefasa) elaborada na linguagem JavaScrip
 
 ### Como Executar? 
 
-- Clone o projeto executando:
-    ```
-    git@github.com:NadiaaOliverr/ToDo-List.git
-    ```
-- Após isso, abra o arquivo `index.html` no navegador e desfrute deste organizador de tarefas.
 
-### Demo :rocket:
 
-O projeto está publicado e basta acessar [este link]() para testá-lo sem a necessidade de qualquer instalação ou preparação de ambiente.
+### Demo
+
+Para executar o projeto, clone ou faça download e após isso abra o arquivo `index.html` no navegador. **Porém, o projeto está publicado**  e basta acessar [este link]() para testá-lo sem a necessidade de qualquer instalação ou preparação de ambiente.
 
 ---
 
