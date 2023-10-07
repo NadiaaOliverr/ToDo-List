@@ -21,6 +21,11 @@
             <p>Adicione sua tarefa</p>
             <div class="form-control">
                 <input type="text" id="todo-input" placeholder="O que você vai fazer?">
+                <select name="" id="select-priority">
+                    <option value="height">Alta</option>
+                    <option value="middle">Média</option>
+                    <option value="low">Baixa</option>
+                </select>
                 <button type="submit"> <i class="fa-thin fa-plus"></i></button>
             </div>
         </form>
@@ -54,6 +59,9 @@
         <div id="todo-list">
             <div class="todo">
                 <h3>Estou fazendo alguma coisa</h3>
+                <div id="priority-low">
+                    <p>Baixa</p>
+                </div>
                 <button class="finish-todo">
                     <i class="fa-solid fa-check"></i>
                 </button>
@@ -66,6 +74,24 @@
             </div>
             <div class="todo">
                 <h3>Estudar JS</h3>
+                <div id="priority-middle">
+                    <p>Média</p>
+                </div>
+                <button class="finish-todo">
+                    <i class="fa-solid fa-check"></i>
+                </button>
+                <button class="edit-todo">
+                    <i class="fa-solid fa-pen"></i>
+                </button>
+                <button class="remove-todo">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="todo">
+                <h3>Estudar JS</h3>
+                <div id="priority-high">
+                    <p>Alta</p>
+                </div>
                 <button class="finish-todo">
                     <i class="fa-solid fa-check"></i>
                 </button>

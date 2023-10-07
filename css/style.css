@@ -90,6 +90,10 @@ input, select {
     font-weight: bold;
 }
 
+#select-priority {
+    margin-right: 5px;
+}
+
 .form-control {
     display: flex;
 }
@@ -155,11 +159,49 @@ input, select {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid #14213d;
+    padding: 0.7rem;
     transition: .3s;
     size: 10px;
+    border-bottom: 1px solid #14213d;
 }
+
+#priority-high{
+    font-size: 0.8em;
+    background-color: crimson;
+    font-weight: bold;
+    width: 15%;
+    margin-left: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+#priority-middle {
+    font-size: 0.8em;
+    background-color: #ee740a;
+    font-weight: bold;
+    width: 15%;
+    margin-left: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+#priority-low {
+    font-size: 0.8em;
+    background-color: #122340;
+    font-weight: bold;
+    width: 15%;
+    margin-left: 2%;
+    display: flex;
+    justify-content: center;
+}
+
+
+#priority-low p,
+#priority-middle p,
+#priority-high p {
+    color: #fff;
+}
+
 
 .todo h3 {
     flex: 1;
