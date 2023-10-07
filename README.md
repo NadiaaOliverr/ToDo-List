@@ -1,6 +1,11 @@
 # Todo List :books:
 
-Aplicação de um todo list (lista de tarefasa) elaborada na linguagem JavaScript em conjunto com HTML e CSS, onde foi trabalhado vários conceitos de manipulação do DOM, como:
+Aplicação de um todo list (lista de tarefasa) elaborada na linguagem JavaScript em conjunto com HTML e CSS, onde foi trabalhado vários conceitos de manipulação do DOM.
+
+![Gif que mostra o projeto em execução e as funcionalidades](https://i.imgur.com/EeWkRbK.gif)
+
+#### Conceitos Trabalhados
+
 - Seleção de Elementos HTML;
 - Remoção de Elementos do DOM;
 - Filtragem de Elementos no DOM
@@ -10,9 +15,7 @@ Aplicação de um todo list (lista de tarefasa) elaborada na linguagem JavaScrip
 - Validação de listas e valores;
 - Uso do LocalStorage;
 
-![Gif que mostra o projeto em execução e as funcionalidades](https://i.imgur.com/EeWkRbK.gif)
-
-### Funcionalidades do Projeto
+#### Funcionalidades
 
 - Adição de Tarefas
 - Edição de Tarefas
