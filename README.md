@@ -31,4 +31,4 @@ Para executar o projeto, clone ou faça download e após isso abra o arquivo `in
 
 ---
 
-Tem alguma sugestão de melhoria ou encontrou algum bug? Deixe sua issue 😉
+Tem alguma sugestão de melhoria ou encontrou algum bug? Deixe sua [issue](https://github.com/NadiaaOliverr/ToDo-List/issues) 😉
