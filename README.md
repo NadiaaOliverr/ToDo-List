@@ -4,7 +4,7 @@ Aplicação de um *todo list* (lista de tarefas) elaborada na linguagem JavaScri
 
 ![Gif que mostra o projeto em execução e as funcionalidades](https://i.imgur.com/EeWkRbK.gif)
 
-#### Conceitos Trabalhados
+### Conceitos Trabalhados
 
 - Seleção de Elementos HTML;
 - Remoção de Elementos do DOM;
@@ -15,7 +15,7 @@ Aplicação de um *todo list* (lista de tarefas) elaborada na linguagem JavaScri
 - Validação de listas e valores;
 - Uso do LocalStorage;
 
-#### Funcionalidades
+### Funcionalidades
 
 - Adição de Tarefas
 - Edição de Tarefas
@@ -25,7 +25,7 @@ Aplicação de um *todo list* (lista de tarefas) elaborada na linguagem JavaScri
 - Marcação de Tarefas como Concluídas
 - Persistência no Local Storage **(A FAZER)**
 
-### Demo :rocket:
+### Execução :rocket:
 
 Para executar o projeto, clone ou faça download e após isso abra o arquivo `index.html` no navegador. **Porém, o projeto está publicado** **(A FAZER)**  e basta acessar [este link]() para testá-lo sem a necessidade de qualquer instalação ou preparação de ambiente.
 
