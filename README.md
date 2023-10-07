@@ -7,9 +7,10 @@ Aplicação de um todo list (lista de tarefasa) elaborada na linguagem JavaScrip
 - Adição de Eventos;
 - Manipulação de Classes CSS via JavaScript;
 - Interação com Botões e Formulários;
+- Validação de listas e valores;
 - Uso do LocalStorage;
 
-**GIF VEM AQUI**
+![Gif que mostra o projeto em execução e as funcionalidades](https://i.imgur.com/EeWkRbK.gif)
 
 ### Funcionalidades do Projeto
 
@@ -19,9 +20,6 @@ Aplicação de um todo list (lista de tarefasa) elaborada na linguagem JavaScrip
 - Deleção de Tarefas
 - Marcação de Tarefas como Concluídas
 - Persistência no Local Storage
-
-
-**GIF VAI VIM AQUI**
 
 ### Como Executar? 
 
