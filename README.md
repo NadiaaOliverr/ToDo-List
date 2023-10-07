@@ -24,10 +24,6 @@ Aplicação de um *todo list* (lista de tarefasa) elaborada na linguagem JavaScr
 - Marcação de Tarefas como Concluídas
 - Persistência no Local Storage
 
-### Como Executar? 
-
-
-
 ### Demo
 
 Para executar o projeto, clone ou faça download e após isso abra o arquivo `index.html` no navegador. **Porém, o projeto está publicado**  e basta acessar [este link]() para testá-lo sem a necessidade de qualquer instalação ou preparação de ambiente.
