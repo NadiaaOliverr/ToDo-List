@@ -27,7 +27,7 @@ Aplicação de um *todo list* (lista de tarefas) elaborada na linguagem JavaScri
 
 ### Execução :rocket:
 
-Para executar o projeto, clone ou faça download e após isso abra o arquivo `index.html` no navegador. **Porém, o projeto está publicado** **(A FAZER)**  e basta acessar [este link]() para testá-lo sem a necessidade de qualquer instalação ou preparação de ambiente.
+Para executar o projeto, clone ou faça download e após isso abra o arquivo **`index.html`** no navegador. **Porém, o projeto está publicado** **(A FAZER)**  e basta acessar [este link]() para testá-lo sem a necessidade de qualquer instalação ou preparação de ambiente.
 
 ---
 

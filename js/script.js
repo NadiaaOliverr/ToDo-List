@@ -60,7 +60,7 @@ function clearValue() {
     todoInput.focus();
 }
 
-function saveTodo(task) {
+function saveTodo(task,  done = 0, save = 1, prioritySelected) {
 
     if(!verifyTitleTask(task)){
         const todo = document.createElement("div");
@@ -70,7 +70,10 @@ function saveTodo(task) {
         todoTitle.innerHTML = task;
         todo.appendChild(todoTitle);
 
-        const prioritySelected = selectPriority.value;
+        if(!prioritySelected){
+            prioritySelected = selectPriority.value;
+        }
+
         let priority = document.createElement("div");
         priority = addPriority(prioritySelected, priority);
 
@@ -90,6 +93,14 @@ function saveTodo(task) {
         removeBtn.classList.add("remove-todo");
         removeBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
         todo.appendChild(removeBtn);
+
+        // Utilizando dados do LocalStorage
+        if(done){
+            todo.classList.add("done");
+        }
+        if(save) {
+            saveTodoLocalStorage({task: task, done: 0, priority: prioritySelected})
+        }
 
         todoList.appendChild(todo);
     }
@@ -220,6 +231,7 @@ document.addEventListener("click", (e) => {
 
     if (targetEl.classList.contains("remove-todo")) {
         parentEl.remove();
+        removeTodoLocalStorage(todoTitle);
     }
 
     if (targetEl.classList.contains("edit-todo")) {
@@ -278,3 +290,40 @@ filterBtn.addEventListener("change", (e) => {
 
     filterTodos(filterValue);
 })
+
+// Local Storage
+
+function getTodosLocalStorage(){
+    const todos = JSON.parse(localStorage.getItem("todos")) || [];
+
+    return todos;
+}
+
+function loadTodosLocalStorage(){
+    const todos = getTodosLocalStorage();
+
+    todos.forEach((todo) => {
+        saveTodo(todo.task, todo.done, 0, todo.priority)
+    })
+}
+
+function saveTodoLocalStorage(todo){
+    const todos = getTodosLocalStorage();
+
+    todos.push(todo);
+
+    localStorage.setItem("todos", JSON.stringify(todos));
+
+}
+
+function removeTodoLocalStorage(task){
+
+    const todos = getTodosLocalStorage();
+
+    const filteredTodos = todos.filter((todo) => todo.task !== task)
+
+    localStorage.setItem("todos", JSON.stringify(filteredTodos));
+
+}
+
+loadTodosLocalStorage();
