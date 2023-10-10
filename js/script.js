@@ -122,9 +122,8 @@ function updateTodo(text, priority) {
 
         if (todoTitle.innerText === oldInputValue) {
             todoTitle.innerText = text;
-
+            updateTodoLocalStorage(oldInputValue, text);
             let priorityDiv = todo.querySelector("div[id^='priority-']");
-            console.log(priorityDiv);
             priorityDiv.id = "";
             addPriority(priority, priorityDiv);
             
@@ -227,6 +226,7 @@ document.addEventListener("click", (e) => {
 
     if (targetEl.classList.contains("finish-todo")) {
         parentEl.classList.toggle("done");
+        updateStatusTodoLocalStorage(todoTitle);
     }
 
     if (targetEl.classList.contains("remove-todo")) {
@@ -317,13 +317,27 @@ function saveTodoLocalStorage(todo){
 }
 
 function removeTodoLocalStorage(task){
-
     const todos = getTodosLocalStorage();
 
     const filteredTodos = todos.filter((todo) => todo.task !== task)
 
     localStorage.setItem("todos", JSON.stringify(filteredTodos));
+}
 
+function updateStatusTodoLocalStorage(task){
+    const todos = getTodosLocalStorage();
+
+    todos.map((todo) => todo.task === task ? (todo.done = !todo.done) : null);
+
+    localStorage.setItem("todos", JSON.stringify(todos));
+}
+
+function updateTodoLocalStorage(todoOldTask, todoNewTask){
+    const todos = getTodosLocalStorage();
+
+    todos.map((todo) => todo.task === todoOldTask ? (todo.task = todoNewTask) : null);
+
+    localStorage.setItem("todos", JSON.stringify(todos));
 }
 
 loadTodosLocalStorage();
