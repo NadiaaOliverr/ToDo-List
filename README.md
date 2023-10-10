@@ -23,7 +23,7 @@ Aplicação de um *todo list* (lista de tarefas) elaborada na linguagem JavaScri
 - Filtragem de Tarefas por Status (Concluídas ou Pendentes)
 - Deleção de Tarefas
 - Marcação de Tarefas como Concluídas
-- Persistência no Local Storage **(A FAZER)**
+- Persistência no Local Storage
 
 ### Execução :rocket:
 
