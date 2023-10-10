@@ -1,4 +1,5 @@
 // Seleção de elementos
+
 const todoForm = document.querySelector("#todo-form");
 const todoInput = document.querySelector("#todo-input");
 const todoList = document.querySelector("#todo-list");
@@ -16,7 +17,8 @@ const editselectPriority = document.querySelector("#select-priority-edit");
 let oldInputValue;
 
 
-// Funções
+// Funções Gerais
+
 function addPriority(value, el) {
     switch (value) {
         case "low":
@@ -42,14 +44,14 @@ function addPriority(value, el) {
 
 function verifyTitleTask(task) {
     const todos = document.querySelectorAll(".todo");
-    let titlesList = []; 
+    let titlesList = [];
 
     todos.forEach((todo) => {
         const todoTitle = todo.querySelector("h3").innerText;
         titlesList.push(todoTitle);
     });
 
-    if(titlesList.includes(task)){
+    if (titlesList.includes(task)) {
         alert("Tarefa já existe no TO DO.");
         return true;
     }
@@ -60,9 +62,9 @@ function clearValue() {
     todoInput.focus();
 }
 
-function saveTodo(task,  done = 0, save = 1, prioritySelected) {
+function saveTodo(task, done = 0, save = 1, prioritySelected) {
 
-    if(!verifyTitleTask(task)){
+    if (!verifyTitleTask(task)) {
         const todo = document.createElement("div");
         todo.classList.add("todo");
 
@@ -70,7 +72,7 @@ function saveTodo(task,  done = 0, save = 1, prioritySelected) {
         todoTitle.innerHTML = task;
         todo.appendChild(todoTitle);
 
-        if(!prioritySelected){
+        if (!prioritySelected) {
             prioritySelected = selectPriority.value;
         }
 
@@ -95,11 +97,11 @@ function saveTodo(task,  done = 0, save = 1, prioritySelected) {
         todo.appendChild(removeBtn);
 
         // Utilizando dados do LocalStorage
-        if(done){
+        if (done) {
             todo.classList.add("done");
         }
-        if(save) {
-            saveTodoLocalStorage({task: task, done: 0, priority: prioritySelected})
+        if (save) {
+            saveTodoLocalStorage({ task: task, done: 0, priority: prioritySelected })
         }
 
         todoList.appendChild(todo);
@@ -126,7 +128,7 @@ function updateTodo(text, priority) {
             let priorityDiv = todo.querySelector("div[id^='priority-']");
             priorityDiv.id = "";
             addPriority(priority, priorityDiv);
-            
+
         }
     });
 }
@@ -166,17 +168,17 @@ function filterTodos(filterValue) {
 
         case "done":
             todos.forEach((todo) => {
-                todo.classList.contains("done") ? 
-                (todo.style.display = "flex") : 
-                (todo.style.display = "none");
+                todo.classList.contains("done") ?
+                    (todo.style.display = "flex") :
+                    (todo.style.display = "none");
             })
             break;
 
         case "todo":
             todos.forEach((todo) => {
-                !todo.classList.contains("done") ? 
-                todo.style.display = "flex" : 
-                todo.style.display = "none";
+                !todo.classList.contains("done") ?
+                    todo.style.display = "flex" :
+                    todo.style.display = "none";
             })
             break;
         default:
@@ -239,11 +241,11 @@ document.addEventListener("click", (e) => {
         toolbar.style.display = "none";
         countStatus.style.display = "none";
         editInput.value = todoTitle;
-        if(todoPriority === "Baixa"){
+        if (todoPriority === "Baixa") {
             editselectPriority.value = "low";
-        }if(todoPriority === "Alta"){
+        } if (todoPriority === "Alta") {
             editselectPriority.value = "high";
-        }if(todoPriority === "Média"){
+        } if (todoPriority === "Média") {
             editselectPriority.value = "middle";
         }
         oldInputValue = todoTitle;
@@ -291,15 +293,15 @@ filterBtn.addEventListener("change", (e) => {
     filterTodos(filterValue);
 })
 
-// Local Storage
+// Funções Local Storage
 
-function getTodosLocalStorage(){
+function getTodosLocalStorage() {
     const todos = JSON.parse(localStorage.getItem("todos")) || [];
 
     return todos;
 }
 
-function loadTodosLocalStorage(){
+function loadTodosLocalStorage() {
     const todos = getTodosLocalStorage();
 
     todos.forEach((todo) => {
@@ -307,7 +309,7 @@ function loadTodosLocalStorage(){
     })
 }
 
-function saveTodoLocalStorage(todo){
+function saveTodoLocalStorage(todo) {
     const todos = getTodosLocalStorage();
 
     todos.push(todo);
@@ -316,7 +318,7 @@ function saveTodoLocalStorage(todo){
 
 }
 
-function removeTodoLocalStorage(task){
+function removeTodoLocalStorage(task) {
     const todos = getTodosLocalStorage();
 
     const filteredTodos = todos.filter((todo) => todo.task !== task)
@@ -324,7 +326,7 @@ function removeTodoLocalStorage(task){
     localStorage.setItem("todos", JSON.stringify(filteredTodos));
 }
 
-function updateStatusTodoLocalStorage(task){
+function updateStatusTodoLocalStorage(task) {
     const todos = getTodosLocalStorage();
 
     todos.map((todo) => todo.task === task ? (todo.done = !todo.done) : null);
@@ -332,7 +334,7 @@ function updateStatusTodoLocalStorage(task){
     localStorage.setItem("todos", JSON.stringify(todos));
 }
 
-function updateTodoLocalStorage(todoOldTask, todoNewTask){
+function updateTodoLocalStorage(todoOldTask, todoNewTask) {
     const todos = getTodosLocalStorage();
 
     todos.map((todo) => todo.task === todoOldTask ? (todo.task = todoNewTask) : null);
