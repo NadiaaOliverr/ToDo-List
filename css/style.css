@@ -1,4 +1,3 @@
-/* Geral */
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Roboto:wght@100;300&display=swap');
 
 * {
@@ -36,8 +35,8 @@ button:hover {
     color: #fff;
 }
 
-button:hover > i {
-   color: #fff;
+button:hover>i {
+    color: #fff;
 }
 
 button i {
@@ -46,7 +45,8 @@ button i {
     pointer-events: none;
 }
 
-input, select {
+input,
+select {
     padding: 0.25rem 0.5rem;
 }
 
@@ -59,7 +59,6 @@ input, select {
     color: #102f5e;
 }
 
-/* Todo header */
 .todo-container {
     max-width: 450px;
     margin: 3rem auto;
@@ -67,8 +66,6 @@ input, select {
     padding: 1.5rem;
     border-radius: 15px;
     box-shadow: 5px 5px 10px #888888;
-    /* box-shadow: 5px 5px 10px #888888, -5px -5px 10px #888888, 5px -5px 10px #888888, -5px 5px 10px #888888; */
-
 }
 
 .todo-container header {
@@ -77,10 +74,8 @@ input, select {
     border-bottom: 0.1rem solid #14213d;
 }
 
-/* Todo Form */
-
-
-#todo-form, #edit-form {
+#todo-form,
+#edit-form {
     padding: 1rem;
 }
 
@@ -99,15 +94,13 @@ input, select {
 }
 
 .form-control input {
-   margin-right: .3rem; 
-   width: 100%;
+    margin-right: .3rem;
+    width: 100%;
 }
 
 #cancel-edit-btn {
     margin-top: 1rem;
 }
-
-/* Todo Toolbar */
 
 #toolbar {
     padding: 1rem;
@@ -156,7 +149,6 @@ input, select {
     margin-right: 5%;
     font-style: italic;
 }
-/* Todo List */
 
 .todo {
     display: flex;
@@ -168,7 +160,7 @@ input, select {
     border-bottom: 1px solid #14213d;
 }
 
-#priority-high{
+#priority-high {
     font-size: 0.8em;
     background-color: crimson;
     font-weight: bold;
