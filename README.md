@@ -8,22 +8,22 @@ Aplicação de um *todo list* (lista de tarefas) elaborada na linguagem JavaScri
 
 - Seleção de Elementos HTML;
 - Remoção de Elementos do DOM;
-- Filtragem de Elementos no DOM
+- Filtragem de Elementos no DOM;
 - Adição de Eventos;
 - Manipulação de Classes CSS via JavaScript;
 - Interação com Botões e Formulários;
 - Validação de listas e valores;
-- Uso do LocalStorage;
+- Uso do LocalStorage.
 
 ### Funcionalidades
 
-- Adição de Tarefas
-- Edição de Tarefas
+- Adição de Tarefas;
+- Edição de Tarefas;
 - Interação do Usuário;
-- Filtragem de Tarefas por Status (Concluídas ou Pendentes)
-- Deleção de Tarefas
-- Marcação de Tarefas como Concluídas
-- Persistência no Local Storage
+- Filtragem de Tarefas;
+- Deleção de Tarefas;
+- Marcação de Tarefas como Concluídas;
+- Persistência no Local Storage.
 
 ### Execução :rocket:
 
